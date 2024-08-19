@@ -2,7 +2,7 @@
 import logging
 
 def setup_logging():
-    logging.basicConfig(filename='bot.log', level=logging.info, format='%(asctime)s:%(levelname)s:%(message)s', filemode='w')
+    logging.basicConfig(filename='bot.log', level=logging.debug, format='%(asctime)s:%(levelname)s:%(message)s', filemode='w')
 
 def log_info(message):
     logging.info(message)
