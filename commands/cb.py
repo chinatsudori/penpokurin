@@ -2,8 +2,7 @@ import discord
 from discord.ext import commands
 from helpers.google_sheets import (
     get_gspread_client,
-    get_current_month_sheet,
-    get_player_name,
+    get_current_month_sheet
 )
 from helpers.error_handler import GoogleSheetsAPIError, send_log_message
 class CBCommand(commands.Cog):

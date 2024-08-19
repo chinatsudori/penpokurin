@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from config import LOG_CHANNEL_ID
 
 
 class HitPlannerCommand(commands.Cog):

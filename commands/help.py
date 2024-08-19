@@ -1,5 +1,6 @@
 from discord import Embed
 from discord.ext import commands
+import asyncio
 
 class HelpCommand(commands.Cog):
     def __init__(self, bot):
@@ -156,17 +157,30 @@ class HelpCommand(commands.Cog):
             await ctx.send(embed=embed)
 
         else:
-            embed = Embed(
-                title="Command Help",
-                description="Here are some available commands. Use `!help <command>` for more details on a specific command.",
-                color=0x00FF00,
-            )
-            embed.add_field(
-                name="Available Commands",
-                value="`cal`, `cb`, `iam`, `okcalc`, `support`, ...",
-                inline=False,
-            )
-            await ctx.send(embed=embed)
+            message = await ctx.send(embed=self.help_pages[0])
+            await message.add_reaction('⬅️')
+            await message.add_reaction('➡️')
+
+            def check(reaction, user):
+                return user == ctx.author and str(reaction.emoji) in ['⬅️', '➡️']
+
+            while True:
+                try:
+                    reaction, user = await self.bot.wait_for('reaction_add', timeout=60.0, check=check)
+                except asyncio.TimeoutError:
+                    break
+                else:
+                    if str(reaction.emoji) == '➡️':
+                        self.current_page += 1
+                        if self.current_page >= len(self.help_pages):
+                            self.current_page = 0  # Loop back to the first page
+                    elif str(reaction.emoji) == '⬅️':
+                        self.current_page -= 1
+                        if self.current_page < 0:
+                            self.current_page = len(self.help_pages) - 1  # Loop to the last page
+
+                    await message.edit(embed=self.help_pages[self.current_page])
+                    await message.remove_reaction(reaction, user)
 
 async def setup(bot):
     bot.help_command = None  # Disable default help command

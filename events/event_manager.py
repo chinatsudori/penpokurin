@@ -1,6 +1,6 @@
 from discord.ext import commands, tasks
 from helpers.time_utils import parse_duration_from_title, calculate_end_time, dt
-from config import CHANNEL_ID, COMMAND_PREFIX, INTENTS, GUILD_ID
+from config import CHANNEL_ID, GUILD_ID
 from helpers.error_handler import send_log_message
 
 class EventManager(commands.Cog):

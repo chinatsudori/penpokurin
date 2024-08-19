@@ -13,17 +13,13 @@ from helpers.time_utils import (
 )
 from helpers.error_handler import GoogleSheetsAPIError, send_log_message
 import discord
-
+from config import SHEET
 
 class SetCBCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-<<<<<<< HEAD
         self.client = get_gspread_client()
         self.sheet = self.client.open(SHEET)  # Correctly open the spreadsheet here
-=======
-        self.sheet = get_gspread_client()  # Assign the Spreadsheet object to self.sheet
->>>>>>> parent of bb100f4 (cb sheet)
 
     @commands.command()
     async def setcb(self, ctx, date_str: str = None):

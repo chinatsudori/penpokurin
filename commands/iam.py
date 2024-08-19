@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 from helpers.google_sheets import get_gspread_client
 from helpers.error_handler import GoogleSheetsAPIError, send_log_message
-from config import LOG_CHANNEL_ID
 
 class IAMCommand(commands.Cog):
     def __init__(self, bot):

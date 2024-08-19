@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from helpers.error_handler import send_log_message
 
 class HelloCommand(commands.Cog):
     def __init__(self, bot):
