@@ -11,5 +11,5 @@ def log_error(message, exc_info=False):
     logging.error(message, exc_info=exc_info)
     
     
-def Log_debug(message):
+def log_debug(message):
     logging.debug(message)
