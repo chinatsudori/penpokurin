@@ -9,7 +9,7 @@ class HipriCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.client = get_gspread_client()
-        self.sheet = self.client.open("Your Spreadsheet Name").sheet1  # Assuming you're working with the first sheet
+        self.sheet = self.client  # Assuming you're working with the first sheet
 
     async def send_log_message(self, message):
         # Log the message to a specific channel or console
