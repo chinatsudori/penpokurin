@@ -19,7 +19,7 @@ class SetCBCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.client = get_gspread_client()
-        self.sheet = self.client.open(SHEET)  # Correctly open the spreadsheet here
+        self.sheet = self.client  # Correctly open the spreadsheet here
 
     @commands.command()
     async def setcb(self, ctx, date_str: str = None):
