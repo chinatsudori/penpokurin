@@ -99,11 +99,3 @@ async def validate_unit_name(unit_name, bot):
 async def get_scheduled_time(bot):
     ppkn_sheet = client.open(SHEET).worksheet("ppkn")
     date_str = ppkn_sheet.cell(1, 2).value  # B1 cell
-<<<<<<< HEAD
-    await send_log_message(
-        bot, "Scheduled Time Retrieved", f"Scheduled time retrieved: {date_str}"
-    )
-    return datetime.datetime.strptime(date_str, "%m/%d/%Y %H:%M")
-=======
-    return datetime.strptime(date_str, "%m/%d/%Y %H:%M")
->>>>>>> parent of bb100f4 (cb sheet)

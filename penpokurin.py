@@ -3,7 +3,6 @@ from config import TOKEN, COMMAND_PREFIX, INTENTS
 import asyncio
 import os
 import signal
-import traceback
 import sys
 from lib.error_handler import setup_logging, log_info, log_error  # Import logging functions
 
